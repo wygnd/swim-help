@@ -4,13 +4,15 @@ import "time"
 
 const rangeIndex = 8
 
+var currentDay = time.Now()
+
 func Today() time.Time {
 	return time.Now()
 }
 
 func RangeDates(prev bool) [rangeIndex]time.Time {
 	var dates [rangeIndex]time.Time
-	today := Today()
+	today := currentDay
 
 	dates[0] = today
 	for i := 1; i < rangeIndex; i++ {
@@ -22,4 +24,8 @@ func RangeDates(prev bool) [rangeIndex]time.Time {
 	}
 
 	return dates
+}
+
+func SetCurrentDay(day time.Time) {
+	currentDay = day
 }
